@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Changer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: black;
+            color: wheat;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click the button to change the background color!</h1>
+    <button id="colorBtn" onclick="changeColor()">Change</button>
+
+    <script>
+        // function to generate a random color
+        function getRandomColor() {
+            let letters = "0123456789ABCDEF";
+            let color = "#";
+            for(let i=0; i<6; i++){
+                color += letters[Math.floor(Math.random()*16)];
+            }
+            return color;
+        }
+
+        // function to change the bg color
+        function changeColor() {
+            document.body.style.backgroundColor = getRandomColor();
+        }
+
+        // adding the click event listener
+        //document.getElementById("colorBtn").addEventListener("click", changeColor);
+    </script>
+</body>
+</html>

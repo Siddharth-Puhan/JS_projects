@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            width: 120px;
+            text-align: center;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: gray;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter a three digit number!</h2>
+    <input type="number" id="num" placeholder="Enter Number" min="100" max="999">
+    <button onclick="calculate()">Calculate</button>
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+            let num = document.getElementById("num").value;
+            num = parseInt(num);
+
+            let rem = 0;
+            let rev = 0;
+            let sum = 0;
+            let prod = 1;
+            for(let i=0; i<3; i++){
+                rem = num%10;
+                sum = sum+rem;
+                rev = rev*10 + rem;
+                prod = prod*rem;
+                num = Math.floor(num/10);
+            }
+
+            document.getElementById("result").innerHTML = `
+            Sum: ${sum} <br>
+            Reverse: ${rev} <br>
+            Product: ${prod}
+            `;
+        }
+
+    </script>
+</body>
+</html>
